@@ -6,6 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 # step 1: download llvm installation script
+sudo apt update
 wget https://apt.llvm.org/llvm.sh
 chmod +x llvm.sh
 
