@@ -13,3 +13,24 @@
 [submodule "vim/lightline.vim"]
 	path = vim/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim/YouCompleteMe"]
+	path = vim/YouCompleteMe
+	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "vim/YCM-Generator"]
+	path = vim/YCM-Generator
+	url = git@github.com:rdnetto/YCM-Generator.git
+[submodule "vim/vim-lastplace"]
+	path = vim/vim-lastplace
+	url = git@github.com:farmergreg/vim-lastplace.git
+[submodule "vim/rainbow"]
+	path = vim/rainbow
+	url = git@github.com:luochen1990/rainbow.git
+[submodule "vim/vim-signify"]
+	path = vim/vim-signify
+	url = git@github.com:mhinz/vim-signify.git
+[submodule "vim/ctrlp.vim"]
+	path = vim/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "vim/vimspector"]
+	path = vim/vimspector
+	url = git@github.com:puremourning/vimspector.git

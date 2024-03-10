@@ -5,4 +5,5 @@ sudo apt update
 sudo apt install gdb
 
 # step 2: copy file from submodule
+rm ~/.gdbinit
 cp gdb-dashboard/.gdbinit ~/
