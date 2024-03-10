@@ -67,22 +67,22 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 if version >= 700
-    set history=64
-    set undolevels=128
-    set undodir=~/.vim/undodir/
-    set undofile
-    set undolevels=1000
-    set undoreload=10000
+  set history=64
+  set undolevels=128
+  set undodir=~/.vim/undodir/
+  set undofile
+  set undolevels=1000
+  set undoreload=10000
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Say no trailing spaces
 
 fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
 endfun
 
 " Go no spaces
@@ -123,5 +123,55 @@ colorscheme onedark
 " lightline stuff
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+  \  'colorscheme': 'one',
+  \  'active': {
+  \    'right': [
+  \      [ 'lineinfo' ],
+  \      [ 'percent' ],
+  \      [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ]
+  \    ]
+  \  },
+  \  'component': {
+  \    'charvaluehex': '0x%B'
+  \  },
+  \  'component_function': {
+  \    'readonly': 'LightlineReadonly',
+  \    'filename': 'LightlineFilename',
+  \    'mode': 'LightlineMode',
+  \    'fileformat': 'LightlineFileformat',
+  \    'filetype': 'LightlineFiletype',
+  \  },
+  \  }
+
+function! LightlineReadonly()
+  return &readonly && &filetype !~# '\v(help|vimfiler|unite)' ? 'RO' : ''
+endfunction
+
+function! LightlineFilename()
+  return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+        \ &filetype ==# 'unite' ? unite#get_status_string() :
+        \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+        \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+endfunction
+
+function! LightlineMode()
+  return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
+        \ expand('%:t') ==# 'ControlP' ? 'CtrlP' :
+        \ &filetype ==# 'unite' ? 'Unite' :
+        \ &filetype ==# 'vimfiler' ? 'VimFiler' :
+        \ &filetype ==# 'vimshell' ? 'VimShell' :
+        \ lightline#mode()
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+
