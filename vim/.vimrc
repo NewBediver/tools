@@ -197,7 +197,7 @@ let g:ctrlp_cmd='CtrlP'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-signify stuff
 
-let g:signify_vcs_list = [ 'git', 'svn', 'arc' ]
+let g:signify_vcs_list = [ 'git', 'svn' ]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " youcompleteme stuff
