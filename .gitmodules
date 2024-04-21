@@ -34,3 +34,6 @@
 [submodule "vim/vimspector"]
 	path = vim/vimspector
 	url = git@github.com:puremourning/vimspector.git
+[submodule "vim/vim-clang-format"]
+	path = vim/vim-clang-format
+	url = https://github.com/rhysd/vim-clang-format.git
