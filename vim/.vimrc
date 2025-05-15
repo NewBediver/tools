@@ -206,7 +206,9 @@ let g:signify_vcs_list = [ 'git', 'svn' ]
 map <C-\> :execute 'YcmCompleter GoToDefinition ' . expand("<cword>")<CR>
 map <C-]> :execute 'YcmCompleter GoToDeclaration '  expand("<cword>")<CR>
 
+let g:ycm_use_clangd=1
+let g:ycm_clangd_binary_path = exepath("clangd")
+let g:ycm_clangd_args = ['--background-index', '--all-scopes-completion', '-j=4', '--clang-tidy', '-log=verbose', '-pretty']
+let g:ycm_clangd_uses_ycmd_caching=0
 let g:ycm_complete_in_comments=1
-let g:ycm_confirm_extra_conf=0
-let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
-
+let g:ycm_echo_current_diagnostic='virtual-text'
